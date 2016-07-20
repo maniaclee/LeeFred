@@ -56,6 +56,12 @@ def shard(id, url):
     url = url % db
     return Result(title='db-' + str(db), subtitle="table-" + str(table), arg=url).toFeedBack()
 
+def toHuiOrder(id):
+    pass
+
+def toHuiOrder(id):
+    pass
+
 
 # class CodeFlowFinder(FlowFinder):
 #     '''
