@@ -12,7 +12,7 @@ def error(errmsg):
     return feeds
 
 
-class Runner():
+class Runner:
     def __init__(self, results):
         self.results = results
 
@@ -49,7 +49,7 @@ class Result:
         return result
 
 
-class Feedback():
+class Feedback:
     """Feeback used by Alfred Script Filter
 
     Usage:

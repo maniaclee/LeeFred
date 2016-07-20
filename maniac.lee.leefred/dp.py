@@ -6,9 +6,6 @@ from leeflow import Result, Runner
 
 __author__ = 'lipeng'
 
-services = ['mopay-service', 'unicashier-order-service', 'unicashier-service', 'hui-order-service', 'hui-mt-web',
-            'hui-business-service']
-
 dbs = [
     Result(title='mopay-online-slave',
            arg='http://rds.dp/;jsessionid=0F98F34F78E8711FDC673197AB8B2B12#/sqleditor/10.1.110.168:3306/MOPay'),
@@ -19,29 +16,21 @@ dbs = [
 ]
 
 
-def mopay(input):
-    return Runner(results=dbs).run(input)
+def mopay(param):
+    return Runner(results=dbs).run(param)
 
 
 def crc32(s):
     return binascii.crc32(s) & 0xffffffff
 
 
-'''
-search shard by crc
-'''
-
-
 def huiOrderExtraCrc32(id):
+    """ search shard by crc """
     return shard(crc32(id), 'http://rds.dp/#/database/HuiOrderExtra%s/config')
 
 
-'''
-search shard by id
-'''
-
-
 def huiOrderExtra(id):
+    """ search shard by id """
     return shard(id, 'http://rds.dp/#/database/HuiOrderExtra%s/config')
 
 
@@ -53,7 +42,7 @@ def shard(id, url):
     else:
         db = id % 32
         table = id / 32 % 32
-    url = url % db
+    url %= db
     return Result(title='db-' + str(db), subtitle="table-" + str(table), arg=url).toFeedBack()
 
 def toHuiOrder(id):
@@ -61,12 +50,6 @@ def toHuiOrder(id):
 
 def toHuiOrder(id):
     pass
-
-
-# class CodeFlowFinder(FlowFinder):
-#     '''
-#     想要调用super,父类必须是新类(继承object),不能是经典类(什么都不继承)
-#     '''
 
 
 if __name__ == '__main__':
