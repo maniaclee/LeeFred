@@ -31,6 +31,29 @@ class Runner:
         return [ser for ser in results if self.trim(ser.title).lower().find(self.trim(s).lower()) >= 0]
 
 
+class Executer:
+    def __init__(self, results):
+        self.results = results
+
+    def run(self, query, querymatcher=lambda result, query: result.title.lower().find(query) >= 0 , resultHandler=None):
+        feeds = Feedback()
+        for e in self.complete(self.results, query, querymatcher):
+            if resultHandler:
+                resultHandler(e)
+            e.addToFeedBack(feeds)
+            print e.title
+        return feeds
+
+    def trim(self, ser):
+        return re.subn('[^a-zA-Z]', '', ser)[0]
+
+    def complete(self, results, s, queryMatcher):
+        if not s or not s.strip():
+            return results
+        # return [ser for ser in results if self.trim(ser.title).lower().find(self.trim(s).lower()) >= 0]
+        return [ser for ser in results if queryMatcher(ser, s)]
+
+
 class Result:
     def __init__(self, title, subtitle="", arg="", valid=True, autocomplete="", icon="icon.png"):
         self.title = title
@@ -47,6 +70,8 @@ class Result:
         result = Feedback()
         self.addToFeedBack(result)
         return result
+    def setsubtitle(self,s):
+        self.subtitle=s
 
 
 class Feedback:

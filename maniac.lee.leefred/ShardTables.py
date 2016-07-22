@@ -1,10 +1,10 @@
 ShardTables = {
 
-    'mopay': [{"ip": "192.168.8.44", "role": "alpha \u4e3b", "port": "3306", "table": "mopay"},
-              {"ip": "10.66.7.32", "role": "qa \u4e3b", "port": "3306", "table": "mopay"},
-              {"ip": "10.2.2.15", "role": "prelease \u4e3b", "port": "3306", "table": "mopay"},
-              {"ip": "10.1.110.121", "role": "product \u4e3b", "port": "3306", "table": "mopay"},
-              {"ip": "10.1.110.168", "role": "product \u8fd0\u8425", "port": "3306", "table": "mopay"}]
+    'mopay': [{"ip": "192.168.8.44", "role": "alpha", "port": "3306", "table": "mopay"},
+              {"ip": "10.66.7.32", "role": "qa", "port": "3306", "table": "mopay"},
+              {"ip": "10.2.2.15", "role": "prelease", "port": "3306", "table": "mopay"},
+              {"ip": "10.1.110.121", "role": "product", "port": "3306", "table": "mopay"},
+              {"ip": "10.1.110.168", "role": "product", "port": "3306", "table": "mopay"}]
     ,
     'huiorder': [{"ip": "192.168.7.106", "role": "alpha", "port": "3306", "table": "HuiOrder0"},
                  {"ip": "10.1.77.106", "role": "qa", "port": "3306", "table": "HuiOrder0"},
@@ -97,7 +97,7 @@ ShardTables = {
                  {"ip": "10.3.10.114", "role": "product", "port": "3306", "table": "HuiOrder17"},
                  {"ip": "10.3.10.116", "role": "product", "port": "3306", "table": "HuiOrder17"}],
 
-    'huiOrderExtra': [{"ip": "10.1.77.106", "role": "qa", "port": "3306", "table": "HuiOrderExtra0"},
+    'huiorderextra': [{"ip": "10.1.77.106", "role": "qa", "port": "3306", "table": "HuiOrderExtra0"},
                       {"ip": "10.1.77.106", "role": "qa", "port": "3306", "table": "HuiOrderExtra1"},
                       {"ip": "10.1.77.106", "role": "qa", "port": "3306", "table": "HuiOrderExtra2"},
                       {"ip": "10.1.77.106", "role": "qa", "port": "3306", "table": "HuiOrderExtra3"},

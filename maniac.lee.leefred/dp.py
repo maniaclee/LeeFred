@@ -2,7 +2,7 @@
 # coding=gbk
 import binascii
 
-from leeflow import Result, Runner
+from leeflow import Result, Runner, Executer
 
 __author__ = 'lipeng'
 
@@ -44,12 +44,6 @@ def shard(id, url):
         table = id / 32 % 32
     url %= db
     return Result(title='db-' + str(db), subtitle="table-" + str(table), arg=url).toFeedBack()
-
-def toHuiOrder(id):
-    pass
-
-def toHuiOrder(id):
-    pass
 
 
 if __name__ == '__main__':
